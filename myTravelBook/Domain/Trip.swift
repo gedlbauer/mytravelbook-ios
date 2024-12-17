@@ -11,8 +11,11 @@ import SwiftData
 @Model
 final class Trip {
     var name: String
+    @Relationship(deleteRule: .cascade, inverse: \JournalEntry.trip)
+    var entries: [JournalEntry]
     
-    init(name: String) {
+    init(name: String, entries: [JournalEntry] = []) {
         self.name = name
+        self.entries = entries
     }
 }

@@ -10,51 +10,51 @@ import _SwiftData_SwiftUI
 
 struct TripDetailView: View {
     @Environment(\.modelContext) private var modelContext
-    @Query private var items: [Item]
+    @Bindable var trip: Trip
 
     var body: some View {
-        NavigationSplitView {
             List {
-                ForEach(items) { item in
-                    NavigationLink {
-                        Text("Item at \(item.timestamp, format: Date.FormatStyle(date: .numeric, time: .standard))")
-                    } label: {
-                        Text(item.timestamp, format: Date.FormatStyle(date: .numeric, time: .standard))
+                ForEach(trip.entries) { entry in
+                    JournalEntryListItem(entry: entry)
+                }
+                .onDelete(perform: deleteEntry)
+            }.overlay {
+                if trip.entries.isEmpty {
+                    Button("Add your first Journal Entry"){
+                        addEntry()
                     }
                 }
-                .onDelete(perform: deleteItems)
             }
+            .animation(.easeInOut, value: trip.entries.isEmpty)
             .toolbar {
                 ToolbarItem(placement: .navigationBarTrailing) {
                     EditButton()
                 }
                 ToolbarItem {
-                    Button(action: addItem) {
-                        Label("Add Item", systemImage: "plus")
+                    Button(action: addEntry) {
+                        Label("Add Entry", systemImage: "plus")
                     }
                 }
-            }
-        } detail: {
-            Text("Select an item")
-        }
+            }.navigationTitle(trip.name)
     }
 
-    private func addItem() {
-        withAnimation {
-            let newItem = Item(timestamp: Date())
-            modelContext.insert(newItem)
-        }
+    private func addEntry() {
+        let newEntry = JournalEntry(title: "Test", text: "Es war sehr schön hier!!", images: [], location: "Hofkirchen", creationDate: Date.now, trip: trip)
+        trip.entries.append(newEntry)
     }
 
-    private func deleteItems(offsets: IndexSet) {
+    private func deleteEntry(offsets: IndexSet) {
         withAnimation {
             for index in offsets {
-                modelContext.delete(items[index])
+                trip.entries.remove(at: index)
             }
         }
     }
 }
 
 #Preview {
-    TripDetailView()
+    var trip = Trip(name: "San Francisco", entries: [])
+    trip.entries.append(JournalEntry(title: "Test in SF", text: "Es war sehr schön hier! 10/10, ich würde wieder kommen! 🌴", images: [], location: "Hofkirchen", creationDate: Date.now, trip: trip))
+    return NavigationSplitView{TripDetailView(trip: trip)}
+    detail: {Text("Test")}
 }

@@ -10,6 +10,9 @@ import SwiftData
 
 @main
 struct myTravelBookApp: App {
+    @AppStorage("welcomeScreenWasShown")
+    var welcomeScreenWasShown: Bool = false
+
     var sharedModelContainer: ModelContainer = {
         let schema = Schema([
             Trip.self,
@@ -25,7 +28,11 @@ struct myTravelBookApp: App {
 
     var body: some Scene {
         WindowGroup {
-            WelcomeView()
+            if $welcomeScreenWasShown.wrappedValue {
+                ContentView()
+            } else {
+                WelcomeView()
+            }
         }
         .modelContainer(sharedModelContainer)
     }

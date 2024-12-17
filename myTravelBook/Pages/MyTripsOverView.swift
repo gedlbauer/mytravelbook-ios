@@ -11,24 +11,30 @@ import SwiftData
 struct MyTripsOverView: View {
     @Environment(\.modelContext) private var modelContext
     @Query private var trips: [Trip]
-    @State private var tripToAdd: Trip? =  Trip(name:"")
+    @State private var tripToAdd: Trip? =  nil
     
     var body: some View {
-        NavigationSplitView {
+        NavigationStack {
             List {
                 ForEach(trips) { trip in
                     NavigationLink {
-                        Text("Item at \(trip.name)")
+                        TripDetailView(trip: trip)
                     } label: {
                         Text(trip.name)
                     }
                 }
                 .onDelete(perform: deleteTrip)
             }
-            .toolbar {
-                ToolbarItem(placement: .navigationBarTrailing) {
-                    EditButton()
+            .overlay{
+                if trips.isEmpty {
+                    Button("Add your first Trip"){
+                        tripToAdd = Trip(name: "")
+                    }
                 }
+            }
+            .navigationTitle("My Trips")
+            .animation(.easeInOut, value: trips.isEmpty)
+            .toolbar {
                 ToolbarItem {
                     Button(action: {tripToAdd = Trip(name: "")}) {
                         Label("Add Trip", systemImage: "plus")
@@ -64,8 +70,6 @@ struct MyTripsOverView: View {
                     }
                 }
             }
-        } detail: {
-            Text("Select an item")
         }
     }
     
