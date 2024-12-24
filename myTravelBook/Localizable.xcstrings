@@ -122,6 +122,28 @@
         }
       }
     },
+    "Entry could not be published!" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Eintrag konnte nicht veröffentlicht werden!"
+          }
+        }
+      }
+    },
+    "Entry published!" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Eintrag veröffentlicht!"
+          }
+        }
+      }
+    },
     "Entry Title" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -205,7 +227,14 @@
       }
     },
     "Share" : {
-
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Teilen"
+          }
+        }
+      }
     },
     "The journal entries could not be loaded." : {
       "localizations" : {
