@@ -27,4 +27,8 @@ final class JournalEntry {
         self.creationDate = creationDate
         self.trip = trip
     }
+    
+    func clone() -> Self {
+        return Self(title: title, text: text, images: images, location: location, creationDate: creationDate, trip: nil)
+    }
 }

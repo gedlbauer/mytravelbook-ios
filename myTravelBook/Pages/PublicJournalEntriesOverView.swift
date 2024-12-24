@@ -8,8 +8,35 @@
 import SwiftUI
 
 struct PublicJournalEntriesOverView: View {
+    let journalEntryClient = PublicJournalEntryApi()
+    @State var isLoading: Bool = false
+    @State var journalEntries: [PublicJournalEntryDto]? = []
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        VStack {
+            if isLoading {
+                ProgressView()
+            } else if let journalEntries {
+                List {
+                    ForEach(journalEntries) { journalEntry in
+                        PublicJournalEntryListItem(entry: journalEntry)
+                    }
+                }
+            } else {
+                Text("The journal entries could not be loaded.")
+            }
+        }.onAppear {
+            loadJournalEntries()
+        }
+    }
+    
+    private func loadJournalEntries() {
+        Task {
+            defer {
+                isLoading = false
+            }
+            journalEntries = await journalEntryClient.getAll()
+        }
     }
 }
 

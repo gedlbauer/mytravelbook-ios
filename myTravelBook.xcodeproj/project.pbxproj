@@ -6,6 +6,14 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		8427FC742D19BA3700DAA748 /* OkHttpClient in Frameworks */ = {isa = PBXBuildFile; productRef = 8427FC732D19BA3700DAA748 /* OkHttpClient */; };
+		8427FC772D19BAA500DAA748 /* Nuke in Frameworks */ = {isa = PBXBuildFile; productRef = 8427FC762D19BAA500DAA748 /* Nuke */; };
+		8427FC792D19BAA500DAA748 /* NukeExtensions in Frameworks */ = {isa = PBXBuildFile; productRef = 8427FC782D19BAA500DAA748 /* NukeExtensions */; };
+		8427FC7B2D19BAA500DAA748 /* NukeUI in Frameworks */ = {isa = PBXBuildFile; productRef = 8427FC7A2D19BAA500DAA748 /* NukeUI */; };
+		8427FC932D1AC15900DAA748 /* NukeVideo in Frameworks */ = {isa = PBXBuildFile; productRef = 8427FC922D1AC15900DAA748 /* NukeVideo */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXFileReference section */
 		84A1B13B2D0D8354002F592F /* myTravelBook.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = myTravelBook.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -23,6 +31,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8427FC742D19BA3700DAA748 /* OkHttpClient in Frameworks */,
+				8427FC772D19BAA500DAA748 /* Nuke in Frameworks */,
+				8427FC932D1AC15900DAA748 /* NukeVideo in Frameworks */,
+				8427FC792D19BAA500DAA748 /* NukeExtensions in Frameworks */,
+				8427FC7B2D19BAA500DAA748 /* NukeUI in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -65,6 +78,11 @@
 			);
 			name = myTravelBook;
 			packageProductDependencies = (
+				8427FC732D19BA3700DAA748 /* OkHttpClient */,
+				8427FC762D19BAA500DAA748 /* Nuke */,
+				8427FC782D19BAA500DAA748 /* NukeExtensions */,
+				8427FC7A2D19BAA500DAA748 /* NukeUI */,
+				8427FC922D1AC15900DAA748 /* NukeVideo */,
 			);
 			productName = myTravelBook;
 			productReference = 84A1B13B2D0D8354002F592F /* myTravelBook.app */;
@@ -95,6 +113,10 @@
 			);
 			mainGroup = 84A1B1322D0D8354002F592F;
 			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				8427FC722D19BA3700DAA748 /* XCRemoteSwiftPackageReference "OkHttpClient" */,
+				8427FC752D19BAA500DAA748 /* XCRemoteSwiftPackageReference "Nuke" */,
+			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 84A1B13C2D0D8354002F592F /* Products */;
 			projectDirPath = "";
@@ -327,6 +349,53 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		8427FC722D19BA3700DAA748 /* XCRemoteSwiftPackageReference "OkHttpClient" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/rmichelberger/OkHttpClient";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
+		8427FC752D19BAA500DAA748 /* XCRemoteSwiftPackageReference "Nuke" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/kean/Nuke";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 12.8.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		8427FC732D19BA3700DAA748 /* OkHttpClient */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 8427FC722D19BA3700DAA748 /* XCRemoteSwiftPackageReference "OkHttpClient" */;
+			productName = OkHttpClient;
+		};
+		8427FC762D19BAA500DAA748 /* Nuke */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 8427FC752D19BAA500DAA748 /* XCRemoteSwiftPackageReference "Nuke" */;
+			productName = Nuke;
+		};
+		8427FC782D19BAA500DAA748 /* NukeExtensions */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 8427FC752D19BAA500DAA748 /* XCRemoteSwiftPackageReference "Nuke" */;
+			productName = NukeExtensions;
+		};
+		8427FC7A2D19BAA500DAA748 /* NukeUI */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 8427FC752D19BAA500DAA748 /* XCRemoteSwiftPackageReference "Nuke" */;
+			productName = NukeUI;
+		};
+		8427FC922D1AC15900DAA748 /* NukeVideo */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 8427FC752D19BAA500DAA748 /* XCRemoteSwiftPackageReference "Nuke" */;
+			productName = NukeVideo;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 84A1B1332D0D8354002F592F /* Project object */;
 }

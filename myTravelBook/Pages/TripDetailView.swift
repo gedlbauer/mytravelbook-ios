@@ -20,8 +20,8 @@ struct TripDetailView: View {
                 .onDelete(perform: deleteEntry)
             }.overlay {
                 if trip.entries.isEmpty {
-                    Button("Add your first Journal Entry"){
-                        addEntry()
+                    NavigationLink("Add your first Journal Entry"){
+                        JournalEntryDetailView(trip: trip)
                     }
                 }
             }
@@ -31,16 +31,13 @@ struct TripDetailView: View {
                     EditButton()
                 }
                 ToolbarItem {
-                    Button(action: addEntry) {
+                    NavigationLink {
+                        JournalEntryDetailView(trip: trip)
+                    } label: {
                         Label("Add Entry", systemImage: "plus")
                     }
                 }
             }.navigationTitle(trip.name)
-    }
-
-    private func addEntry() {
-        let newEntry = JournalEntry(title: "Test", text: "Es war sehr schön hier!!", images: [], location: "Hofkirchen", creationDate: Date.now, trip: trip)
-        trip.entries.append(newEntry)
     }
 
     private func deleteEntry(offsets: IndexSet) {

@@ -1,0 +1,24 @@
+{
+  "originHash" : "3ba11764390f07211d8c667fb907090d8d2e395a689b12e20529497040f5721b",
+  "pins" : [
+    {
+      "identity" : "nuke",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/kean/Nuke",
+      "state" : {
+        "revision" : "0ead44350d2737db384908569c012fe67c421e4d",
+        "version" : "12.8.0"
+      }
+    },
+    {
+      "identity" : "okhttpclient",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/rmichelberger/OkHttpClient",
+      "state" : {
+        "revision" : "4b16a0f97e814132326e76479fe90e2f9fc962a2",
+        "version" : "1.0.0"
+      }
+    }
+  ],
+  "version" : 3
+}

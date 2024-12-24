@@ -28,7 +28,7 @@ struct MyTripsOverView: View {
             .overlay{
                 if trips.isEmpty {
                     Button("Add your first Trip"){
-                        tripToAdd = Trip(name: "")
+                        openAddTripDialog()
                     }
                 }
             }
@@ -36,41 +36,51 @@ struct MyTripsOverView: View {
             .animation(.easeInOut, value: trips.isEmpty)
             .toolbar {
                 ToolbarItem {
-                    Button(action: {tripToAdd = Trip(name: "")}) {
+                    EditButton()
+                }
+                ToolbarItem {
+                    Button(action: openAddTripDialog) {
                         Label("Add Trip", systemImage: "plus")
-                    }.sheet(item: $tripToAdd){ trip in
-                        NavigationView {
-                            VStack {
-                                LabeledContent{
-                                    TextField("Enter the name of your trip here", text: Binding(
-                                        get: { trip.name },
-                                        set: { trip.name = $0 }
-                                    ))
-                                    .textFieldStyle(RoundedBorderTextFieldStyle())
-                                } label : { Text("Trip Name") }
-                                    .padding()
-                            }.frame(maxHeight: .infinity, alignment: .topLeading)
-                            .navigationTitle("Add Trip")
-                            .toolbar {
-                                ToolbarItem(placement: .cancellationAction) {
-                                    Button("Cancel") {
-                                        tripToAdd = nil
-                                    }
+                    }
+                }
+            }.sheet(item: $tripToAdd){ trip in
+                NavigationView {
+                    VStack {
+                        LabeledContent{
+                            TextField("Enter the name of your trip here", text: Binding(
+                                get: { trip.name },
+                                set: { trip.name = $0 }
+                            ))
+                            .textFieldStyle(RoundedBorderTextFieldStyle())
+                        } label : { Text("Trip Name") }
+                            .padding()
+                    }.frame(maxHeight: .infinity, alignment: .topLeading)
+                        .navigationTitle("Add Trip")
+                        .toolbar {
+                            ToolbarItem(placement: .cancellationAction) {
+                                Button("Cancel") {
+                                    tripToAdd = nil
                                 }
-                                ToolbarItem(placement: .confirmationAction) {
-                                    Button("Done") {
-                                        if let newTrip = tripToAdd {
-                                            modelContext.insert(newTrip)
-                                            tripToAdd = nil
-                                        }
-                                    }
+                            }
+                            ToolbarItem(placement: .confirmationAction) {
+                                Button("Done") {
+                                    addTrip()
                                 }
                             }
                         }
-                    }
                 }
             }
         }
+    }
+    
+    private func openAddTripDialog() {
+        tripToAdd = Trip(name: "")
+    }
+    
+    private func addTrip() {
+        guard let newTrip = tripToAdd else { return }
+        modelContext.insert(newTrip)
+        tripToAdd = nil
     }
     
     private func deleteTrip(offsets: IndexSet) {

@@ -1,6 +1,16 @@
 {
   "sourceLanguage" : "en",
   "strings" : {
+    "Add" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Hinzufügen"
+          }
+        }
+      }
+    },
     "Add Entry" : {
       "localizations" : {
         "de" : {
@@ -11,8 +21,15 @@
         }
       }
     },
-    "Add Image" : {
-
+    "Add Images" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Bilder hinzufügen"
+          }
+        }
+      }
     },
     "Add Trip" : {
       "localizations" : {
@@ -65,7 +82,15 @@
       }
     },
     "Date" : {
-
+      "extractionState" : "manual",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Datum"
+          }
+        }
+      }
     },
     "Done" : {
       "localizations" : {
@@ -73,6 +98,16 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Fertig"
+          }
+        }
+      }
+    },
+    "Edit" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Bearbeiten"
           }
         }
       }
@@ -87,8 +122,16 @@
         }
       }
     },
-    "Entry Date" : {
-
+    "Entry Title" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Titel des Eintrags"
+          }
+        }
+      }
     },
     "Friends" : {
       "localizations" : {
@@ -110,23 +153,36 @@
         }
       }
     },
-    "Hello, World!" : {
-
-    },
     "Image not available" : {
-
-    },
-    "image x" : {
-
-    },
-    "Images" : {
-
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Bild nicht verfügbar"
+          }
+        }
+      }
     },
     "Journal Entry" : {
-
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tagebucheintrag"
+          }
+        }
+      }
     },
     "Location" : {
-
+      "extractionState" : "manual",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ort"
+          }
+        }
+      }
     },
     "My Trips" : {
       "localizations" : {
@@ -138,11 +194,39 @@
         }
       }
     },
-    "Text" : {
+    "Save" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Speichern"
+          }
+        }
+      }
+    },
+    "Share" : {
 
     },
+    "The journal entries could not be loaded." : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Die Tagebucheinträge konnten nicht geladen werden."
+          }
+        }
+      }
+    },
     "Title" : {
-
+      "extractionState" : "manual",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Titel"
+          }
+        }
+      }
     },
     "Trip Name" : {
       "localizations" : {
@@ -153,9 +237,6 @@
           }
         }
       }
-    },
-    "Trip Title" : {
-
     },
     "Welcome to myTravelBook" : {
       "localizations" : {

@@ -19,15 +19,17 @@ struct JournalEntryListItem: View {
                 if let location = entry.location {
                     Text(location)
                 }
-                if(!entry.images.isEmpty){
-                    ForEach(entry.images, id: \.hashValue){ imageData in
-                        if let image = Image(data: imageData) {
-                            image
-                                .resizable()
-                                .scaledToFit()
-                                .frame(maxWidth: 300, maxHeight: 300)
-                        } else {
-                            Text("Image not available")
+                ScrollView(.horizontal) {
+                    HStack(spacing: 0){
+                        ForEach(entry.images, id: \.self) { imageData in
+                            if let image = Image(data: imageData) {
+                                image
+                                    .resizable()
+                                    .scaledToFit()
+                                    .frame(maxHeight: 150)
+                            } else {
+                                Text("Image not available")
+                            }
                         }
                     }
                 }
@@ -36,10 +38,4 @@ struct JournalEntryListItem: View {
             }
         }
     }
-}
-
-#Preview {
-    var trip = Trip(name: "San Francisco", entries: [])
-    trip.entries.append(JournalEntry(title: "Test in SF", text: "Es war sehr schön hier! 10/10, ich würde wieder kommen! 🌴", images: [], location: "Hofkirchen", creationDate: Date.now, trip: trip))
-    return JournalEntryListItem(entry: trip.entries.first!)
 }
